@@ -1,0 +1,61 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+
+// bower:scss
+@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
+// endbower
+
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+
+    /* Remove the padding we set earlier */
+    .header,
+    .marketing,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 30px;
+    }
+
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+        border-bottom: 0;
+    }
+}
+
+
+
+
+// PDL styles
+
+
+h1 {
+    display: inline-block;
+}
+
+.topRightNav {
+    display: inline-block;
+}
+
+.sidebar {
+    display: inline-block;
+    width: 25%;
+    vertical-align: top;
+}
+
+.mainSection {
+    display: inline-block;
+    width: 65%;
+    vertical-align: top;
+}
+
+.loginSection {
+    display: inline-block;
+}

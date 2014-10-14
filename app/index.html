@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Batch Maker</title>
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+  <body>
+
+    <script type="text/x-handlebars" data-template-name="application">
+        <header>
+            <span>The kitchen is yours, chef!</span>
+            <h1>Batch Maker</h1>
+            <div class='topRightNav'>
+                <a href=''>+</a>
+                <a href=''>Settings</a>
+                <a href=''>Edit Profile</a>
+            </div>
+        </header>
+        <div class="sidebar">
+            <ul>
+                <li>
+                <a href=''>My Recipes</a>
+                </li>
+                <li>
+                <a href=''>Public Recipes</a>
+                </li>
+                <li>
+                <a href=''>Popular Recipes</a>
+                </li>
+                <li>
+                <a href=''>My Favorite Recipes</a>
+                </li>
+                <li>
+                <a href=''>My Pantry</a>
+                </li>
+            </ul>
+        </div>
+    <div="mainSection">
+    {{outlet}}
+    </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="login">
+        <div class="loginSection">
+        <h5>Log in to see bakers fussin:</h5>
+        {{input type="text" class="" value=username placeholder="userName"}}
+        {{input type="text" class="" value=email placeholder="E-mail"}}
+        <button {{action "logIn"}}>Log In</button>
+        <p>Never made a batch with us? <a href="">Register Here!</a>
+        </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="home">
+    Yo
+    </script>
+     
+
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/jQuery/dist/jquery.js"></script>
+        <script src="bower_components/handlebars/handlebars.js"></script>
+        <script src="bower_components/ember/ember.js"></script>
+        <script src="bower_components/ember-data/ember-data.js"></script>
+        <script src="bower_components/firebase/firebase.js"></script>
+        <script src="bower_components/emberfire/dist/emberfire.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+
+
+        <!-- build:js scripts/main.js -->
+        <script src="js/application.js"></script>
+        <script src="js/router.js"></script>
+        <script src="js/controllers/application_controller.js"></script>
+        <script src="js/controllers/login_controller.js"></script>
+        <script src="js/models/todo.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
