@@ -1,5 +1,6 @@
 BM.Router.map(function(){
-	this.resource('index', { path: '/'});
+	// this.resource('index', {path: '/'});
+	this.resource('userPage', {path: ':user_name'});
 
 	this.route('login');
 	this.route('settings');
@@ -15,6 +16,17 @@ BM.Router.map(function(){
 BM.ApplicationRoute = Ember.Route.extend({
 	model: function(){
 		return this.store.find('user', 'user_id_p');
+	}
+});
+
+BM.IndexRoute = Ember.Route.extend({
+	beforeModel: function() {
+		console.log(this.controllerFor('application').get('user'));
+		console.log(this.modelFor('application'));
+		if (!this.modelFor('application')){
+			//!this.get('controllers.application.user')) {
+			this.transitionTo('login');
+		} 
 	}
 });
 
