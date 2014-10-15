@@ -5,6 +5,7 @@ BM.RecipesController = Ember.Controller.extend({
 	user: Ember.computed.alias('controllers.application.user'),
 	init: function() {
 		console.log(this.get('user'));
+		console.log(this.get('controllers.application.user.data'));
 	},
 
 	actions: {
