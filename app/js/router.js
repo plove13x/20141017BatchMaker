@@ -1,5 +1,5 @@
 BM.Router.map(function(){
-	//this.route('login', { path: '/'});
+	this.route('login', { path: '/'});
 	this.resource('index');
 });
 
@@ -11,7 +11,7 @@ BM.ApplicationRoute = Ember.Route.extend({
 });
 
 BM.IndexRoute = Ember.Route.extend({
-  model: function() {
-    return this.store.find('recipe');
-  }
+  	model: function() {
+    	return this.store.find('recipe');
+  	}
 });

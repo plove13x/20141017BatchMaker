@@ -1,5 +1,6 @@
 BM.IndexController = Ember.Controller.extend({
 	needs: 'application',
+	recipeName: '',
 	recipeDetails: '',
 	user: Ember.computed.alias('controllers.application.user'),
 	init: function() {
@@ -19,7 +20,8 @@ BM.IndexController = Ember.Controller.extend({
 			recipe.save();
 			user.get('recipes').addObject(recipe);
 			user.save();
-			this.set('newRecipe', '');
+			this.set('recipeName', '');
+			this.set('recipeDetails', '');
 		}
 	},
 
