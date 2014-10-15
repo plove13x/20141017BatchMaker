@@ -1,13 +1,17 @@
 BM.Router.map(function(){
-	this.route('login', { path: '/'});
-	this.resource('home');
+	//this.route('login', { path: '/'});
+	this.resource('index');
 });
 
-// 	this.resource('todos', { path: '/' });
 
+BM.ApplicationRoute = Ember.Route.extend({
+	model: function(){
+		return this.store.find('user', 'user_id_plove');
+	}
+});
 
-// Todos.TodosRoute = Ember.Route.extend({
-//   model: function() {
-//     return this.store.find('todo');
-//   }
-// });
+BM.IndexRoute = Ember.Route.extend({
+  model: function() {
+    return this.store.find('recipe');
+  }
+});
