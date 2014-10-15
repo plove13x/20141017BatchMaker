@@ -51,8 +51,44 @@
         </div>
     </script>
 
+    <script type="text/x-handlebars" data-template-name="settings">
+    Adjust yo settings.
+    </script>
+
+
     <script type="text/x-handlebars" data-template-name="index">
-    Yo.
+        <div class="recipeCat1st5">
+            <div class='recipeCatHeader'>
+                <h2>My Recipes</h2>
+                <a href="#">View all></a>
+            </div>
+            <ul>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+            </ul>
+        </div>
+
+        <div class="recipeCat1st5">
+            <div class='recipeCatHeader'>
+                <h2>Public Recipes</h2>
+                <a href="#">View all></a>
+            </div>
+            <ul>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+            </ul>
+        </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="recipes">
+    Recipes!!
+        Yo.
     {{input type="text" class="new-recipe" placeholder="Name your Recipe" value=recipeName}}
     {{input type="text" class="new-recipe" placeholder="details plz" value=recipeDetails}}
     <button {{action "createRecipe"}}>Store that in tha store</button>
@@ -78,6 +114,7 @@
         <script src="js/controllers/application_controller.js"></script>
         <script src="js/controllers/login_controller.js"></script>
         <script src="js/controllers/index_controller.js"></script>
+        <script src="js/controllers/recipes_controller.js"></script>
         <script src="js/models/user.js"></script>
         <script src="js/models/recipe.js"></script>
         <!-- endbuild -->
