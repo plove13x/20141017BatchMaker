@@ -1,13 +1,9 @@
 BM.Router.map(function(){
-	this.resource('index', {path: '/:user_name'});
-	// this.resource('userPage', {path: ':user_name'});
-
-
-	this.resource('cool', {path: '/cool/:id'});
-
-
+	this.resource('index', {path: '/'});
 	this.route('login');
 	this.route('settings');
+
+	this.resource('user', {path: '/user/:id'});		/* {path: ':user_name'})? */
 
 	this.resource('recipes', function(){
 		this.route('create');
@@ -19,12 +15,6 @@ BM.Router.map(function(){
 });
 
 
-
-BM.CoolRoute = Ember.Route.extend({
-	model: function(params){
-		return this.store.find('user', params.id);
-	}
-});
 
 
 BM.ApplicationRoute = Ember.Route.extend({
@@ -47,20 +37,31 @@ BM.IndexRoute = Ember.Route.extend({
 	}
 });
 
+// In IndexRoute!!!
+// setupController
+// controller.set(my recipes, modelfor my recipes);
+// controller.set(popular recipes, modelfor)
+
+
+
+
+
 // BM.IndexRoute = Ember.Route.extend({
 //   	model: function() {
 //     	return this.store.find('recipe');
 //   	}
 // });
 
+
+BM.UserRoute = Ember.Route.extend({
+	model: function(params){
+		return this.store.find('user', params.id);
+	}
+});
+
+
 BM.RecipesRoute = Ember.Route.extend({
   	model: function() {
     	return this.store.find('recipe');
   	}
 });
-
-
-// In IndexRoute!!!
-// setupController
-// controller.set(my recipes, modelfor my recipes);
-// controller.set(popular recipes, modelfor)
