@@ -16,7 +16,6 @@ BM.Router.map(function(){
 
 
 
-
 BM.ApplicationRoute = Ember.Route.extend({
 	model: function(params){
 		return this.store.find('user', 'user_id_ollie');
@@ -61,14 +60,6 @@ BM.IndexRoute = Ember.Route.extend({
 // controller.set(popular recipes, modelfor)
 
 
-
-
-
-// BM.IndexRoute = Ember.Route.extend({
-//   	model: function() {
-//     	return this.store.find('recipe');
-//   	}
-// });
 
 
 BM.UserRoute = Ember.Route.extend({							
