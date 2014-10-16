@@ -25,7 +25,6 @@
                 {{#link-to 'recipes.create'}}
                 +
                 {{/link-to}}
-                <a href=''>+</a>
                 <a href=''>Settings</a>
                 <a href=''>Edit Profile</a>
             </div>
@@ -68,8 +67,14 @@
         </div>
     </script>
 
+
+
+<!--     {{input type="checkbox" checked=isPublic}} -->
     <script type="text/x-handlebars" data-template-name="recipes/create">
     Gimme a new one.
+    {{input type="text" class="new-recipe" placeholder="Name your Recipe" value=recipeName}}
+    {{input type="text" class="new-recipe" placeholder="details plz" value=recipeDetails}}
+    <button {{action "createRecipe"}}>Store that in tha store</button>
     </script>
 
 
@@ -172,16 +177,12 @@
 
 
     <script type="text/x-handlebars" data-template-name="recipes/index">
-    Recipes!!
+    Public Recipes (but currently all ;)
     <ul>
     {{#each}}
         <li><a href="#">{{name}}</a></li>
     {{/each}}
     </ul>
-        Yo.
-    {{input type="text" class="new-recipe" placeholder="Name your Recipe" value=recipeName}}
-    {{input type="text" class="new-recipe" placeholder="details plz" value=recipeDetails}}
-    <button {{action "createRecipe"}}>Store that in tha store</button>
     </script>
 
 
@@ -206,6 +207,7 @@
         <script src="js/controllers/index_controller.js"></script>
         <script src="js/controllers/user_controller.js"></script>
         <script src="js/controllers/recipes_controller.js"></script>
+        <script src="js/controllers/recipesCreate_controller.js"></script>
         <script src="js/models/user.js"></script>
         <script src="js/models/recipe.js"></script>
         <!-- endbuild -->
