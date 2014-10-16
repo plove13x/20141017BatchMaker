@@ -19,12 +19,15 @@
                 Batch Maker
                 {{/link-to}}</h1>
             <div class='topRightNav'>
-                <a href=''>+</a>
-                <a href=''>Settings</a>
-                <a href=''>Edit Profile</a>
                 {{#link-to 'login'}}
                 Login
                 {{/link-to}}
+                {{#link-to 'recipes.create'}}
+                +
+                {{/link-to}}
+                <a href=''>+</a>
+                <a href=''>Settings</a>
+                <a href=''>Edit Profile</a>
             </div>
         </header>
         <div class="sidebar">
@@ -64,6 +67,11 @@
         <p>Never made a batch with us? <a href="">Register Here!</a>
         </div>
     </script>
+
+    <script type="text/x-handlebars" data-template-name="recipes/create">
+    Gimme a new one.
+    </script>
+
 
     <script type="text/x-handlebars" data-template-name="settings">
     Adjust yo settings.
@@ -163,13 +171,7 @@
     </script>
 
 
-
-<!--     
-    {{#each}}
-        <li><a href="#">{{id}}</a></li>
-    {{/each}}
- -->
-    <script type="text/x-handlebars" data-template-name="recipes">
+    <script type="text/x-handlebars" data-template-name="recipes/index">
     Recipes!!
     <ul>
     {{#each}}

@@ -3,7 +3,7 @@ BM.Router.map(function(){
 	this.route('login');
 	this.route('settings');
 
-	this.resource('user', {path: '/user/:id'});		/* {path: ':user_name'})? */
+	this.resource('user', {path: '/:id'});		/* {path: ':user_name'})? */
 
 	this.resource('recipes', function(){
 		this.route('create');
