@@ -7,10 +7,17 @@
   </head>
   <body>
 
+
+
+<!--                 // {{#link-to 'user controllers.application.user.id'}}
+                // My Recipes
+                // {{/link-to}} -->
     <script type="text/x-handlebars" data-template-name="application">
         <header>
             <span>The kitchen is yours, chef!</span>
-            <h1>Batch Maker</h1>
+            <h1>{{#link-to 'index'}}
+                Batch Maker
+                {{/link-to}}</h1>
             <div class='topRightNav'>
                 <a href=''>+</a>
                 <a href=''>Settings</a>
@@ -20,10 +27,14 @@
         <div class="sidebar">
             <ul>
                 <li>
-                <a href=''>My Recipes</a>
+                {{#link-to 'user' id}}
+                My Recipes
+                {{/link-to}}
                 </li>
                 <li>
-                <a href=''>Public Recipes</a>
+                {{#link-to 'recipes'}}
+                Public Recipes
+                {{/link-to}}
                 </li>
                 <li>
                 <a href=''>Popular Recipes</a>
@@ -73,6 +84,9 @@
                 <a href="#">View all></a>
             </div>
             <ul>
+
+
+
                 <li><a href="#"></a></li>
                 <li><a href="#"></a></li>
                 <li><a href="#"></a></li>
@@ -87,10 +101,11 @@
                 <a href="#">View all></a>
             </div>
             <ul>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
+
+                {{#each recipes}}
+                    <li><a href="#">{{name}}</a></li>
+                {{/each}}
+
                 <li><a href="#"></a></li>
             </ul>
         </div>
@@ -140,6 +155,9 @@
 
     <script type="text/x-handlebars" data-template-name="user">
     My Recipes
+    {{#each myRecipes}}
+        <li><a href="#">{{name}}</a></li>
+    {{/each}}
     </script>
 
 
@@ -151,9 +169,11 @@
  -->
     <script type="text/x-handlebars" data-template-name="recipes">
     Recipes!!
+    <ul>
     {{#each}}
         <li><a href="#">{{name}}</a></li>
     {{/each}}
+    </ul>
         Yo.
     {{input type="text" class="new-recipe" placeholder="Name your Recipe" value=recipeName}}
     {{input type="text" class="new-recipe" placeholder="details plz" value=recipeDetails}}

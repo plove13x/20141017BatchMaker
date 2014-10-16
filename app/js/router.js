@@ -36,7 +36,18 @@ BM.IndexRoute = Ember.Route.extend({
 		} 
 	},
 
+	model: function(){
+    	return Ember.RSVP.hash({
+      		recipes: this.store.find('recipe'),
+      		// popular: this.store.find('popularRecipe')
+    	});
+  	},
+
 	setupController: function(controller, model) {
+		this._super(controller, model);
+		// var myRecipes = this.modelFor('recipes');		 shouldn't actually be the public recipes until u do setup controller for Public Recipes 
+		// console.log(myRecipes);
+		controller.set('recipes', model.recipes);			/* 1st argument is property name, 2nd is variable set above as its value */
 		// this.controllerFor('recipes').set()
 		// controller.set('recipes', modelFor('recipes'));
 		// this.controllerFor('recipes').set(this.store.find('recipe'), model);
@@ -60,10 +71,16 @@ BM.IndexRoute = Ember.Route.extend({
 // });
 
 
-BM.UserRoute = Ember.Route.extend({
+BM.UserRoute = Ember.Route.extend({							
 	model: function(params) {
 		return this.store.find('user', params.id);
-	}
+	},
+
+	// setupController: function(controller, model) {
+	// 	var myRecipes = this.modelFor('recipes');					 shouldn't actually be this public model... 
+	// 	console.log(myRecipes);
+	// 	controller.set('myRecipes', myRecipes)
+	// }
 });
 
 
