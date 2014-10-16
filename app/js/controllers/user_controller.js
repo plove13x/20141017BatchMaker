@@ -1,4 +1,4 @@
-BM.UserController = Ember.Controller.extend({
+BM.UserController = Ember.ArrayController.extend({
 	// recipes: [{id: 1, name: 'add'}, {id: 2, name: 'minus'}]
 });
 

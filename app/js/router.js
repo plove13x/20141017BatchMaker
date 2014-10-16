@@ -32,13 +32,14 @@ BM.IndexRoute = Ember.Route.extend({
 		if (!this.modelFor('application')){
 			//!this.get('controllers.application.user')) {
 			this.transitionTo('login');
+
 		} 
 	},
 
 	model: function(){
     	return Ember.RSVP.hash({
       		recipes: this.store.find('recipe'),
-      		// popular: this.store.find('popularRecipe')
+      		// popular: this.store.find('popularRecipe')			/* YOU WON'T WANT THIS TO TRY TO AUTHENTICATE IF USER ISN'T LOGGED IN THO... */
     	});
   	},
 
@@ -47,6 +48,7 @@ BM.IndexRoute = Ember.Route.extend({
 		// var myRecipes = this.modelFor('recipes');		 shouldn't actually be the public recipes until u do setup controller for Public Recipes 
 		// console.log(myRecipes);
 		controller.set('recipes', model.recipes);			/* 1st argument is property name, 2nd is variable set above as its value */
+		controller.set('myRecipes', model.recipes);			/* This is obviously not targeting the user's personal recipes yet */
 		// this.controllerFor('recipes').set()
 		// controller.set('recipes', modelFor('recipes'));
 		// this.controllerFor('recipes').set(this.store.find('recipe'), model);
@@ -62,9 +64,17 @@ BM.IndexRoute = Ember.Route.extend({
 
 
 
-BM.UserRoute = Ember.Route.extend({							
-	model: function(params) {
-		return this.store.find('user', params.id);
+BM.UserRoute = Ember.Route.extend({	
+	model: function() {
+		// console.log(this.store.find('user_id_ollie'));
+  //   	return this.store.find('recipe');
+
+    	return this.store.find('user', 'user_id_ollie').then(function(user) {
+    		return user.get('recipes');
+    	});
+
+	// model: function(params) {							// THESE TWO LINES WERE IN HERE IF IT BREAKS!
+	// 	return this.store.find('user', params.id);
 	},
 
 	// setupController: function(controller, model) {
@@ -77,6 +87,7 @@ BM.UserRoute = Ember.Route.extend({
 
 BM.RecipesRoute = Ember.Route.extend({
   	model: function() {
+  		// var a = this.modelFor('application');
     	return this.store.find('recipe');
   	}
 });

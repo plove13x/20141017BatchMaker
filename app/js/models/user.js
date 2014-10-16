@@ -1,7 +1,7 @@
 BM.User = DS.Model.extend({
 	name: DS.attr('string'),
 	password: DS.attr('string'),
-	recipes: DS.hasMany('recipe')
+	recipes: DS.hasMany('recipe', { async: true })
 });
 
 

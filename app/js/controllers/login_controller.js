@@ -8,7 +8,7 @@ BM.LoginController = Ember.Controller.extend({
 				//if (this.get('userName') && this.get('email')){
 					this.set('controllers.application.user', {
 						username: this.get('username'),
-						password: this.get('password')
+						id: this.get('id')
 					});
 			// }
 					this.transitionToRoute('index');

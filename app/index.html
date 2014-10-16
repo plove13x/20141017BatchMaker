@@ -59,7 +59,7 @@
         <div class="loginSection">
         <h5>Log in to see bakers fussin:</h5>
         {{input type="text" class="" value=username placeholder="userName"}}
-        {{input type="text" class="" value=password placeholder="password"}}
+        {{input type="text" class="" value=id placeholder="id"}}
         <button {{action "logIn"}}>Log In</button>
         <p>Never made a batch with us? <a href="">Register Here!</a>
         </div>
@@ -88,11 +88,10 @@
             </div>
             <ul>
 
+                {{#each myRecipes}}
+                    <li><a href="#">{{name}}</a></li>
+                {{/each}}    
 
-
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
                 <li><a href="#"></a></li>
                 <li><a href="#"></a></li>
             </ul>
@@ -158,7 +157,7 @@
 
     <script type="text/x-handlebars" data-template-name="user">
     My Recipes
-    {{#each myRecipes}}
+    {{#each}}
         <li><a href="#">{{name}}</a></li>
     {{/each}}
     </script>
