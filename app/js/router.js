@@ -19,7 +19,7 @@ BM.Router.map(function(){
 
 BM.ApplicationRoute = Ember.Route.extend({
 	model: function(params){
-		return this.store.find('user', 'user_id_p');
+		return this.store.find('user', 'user_id_ollie');
 		// return rooms.findBy('id', params.room_id);
 		// console.log(params);
 		// return this.store.findBy('id', params.id);		/* params.user_name */
@@ -34,9 +34,16 @@ BM.IndexRoute = Ember.Route.extend({
 			//!this.get('controllers.application.user')) {
 			this.transitionTo('login');
 		} 
-	}
-});
+	},
 
+	setupController: function(controller, model) {
+		// this.controllerFor('recipes').set()
+		// controller.set('recipes', modelFor('recipes'));
+		// this.controllerFor('recipes').set(this.store.find('recipe'), model);
+    	// this.controllerFor('user').set(this.modelFor('user'), model);
+  	}
+
+});
 // In IndexRoute!!!
 // setupController
 // controller.set(my recipes, modelfor my recipes);
@@ -54,7 +61,7 @@ BM.IndexRoute = Ember.Route.extend({
 
 
 BM.UserRoute = Ember.Route.extend({
-	model: function(params){
+	model: function(params) {
 		return this.store.find('user', params.id);
 	}
 });

@@ -1,8 +1,8 @@
-// BM.IndexController = Ember.Controller.extend({
+BM.IndexController = Ember.Controller.extend({
 // 	needs: 'application',
 // 	recipeName: '',
 // 	recipeDetails: '',
-// 	user: Ember.computed.alias('controllers.application.user'),
+	user: Ember.computed.alias('controllers.application.user'),
 // 	init: function() {
 // 		console.log(this.get('user'));
 // 	},
@@ -27,7 +27,7 @@
 
 // 	// recipe: ''
 	
-// });
+});
 
 
 // 	// username: Ember.computed.alias('controllers.application.user.username')	

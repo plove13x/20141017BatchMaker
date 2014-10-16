@@ -56,6 +56,15 @@
     </script>
 
 
+
+
+<!--                 
+                {{#each itemController="recipes"}}
+                <li><a href="#">{{id}}</a></li>
+                {{/each}}
+
+            {{#log controllerFor('user').get('recipes'));}}
+ -->
 <!-- {{each my recipes}}  Add to ones that need to be not public once controller is set -->
     <script type="text/x-handlebars" data-template-name="index">
         <div class="recipeCat1st5">
@@ -133,8 +142,18 @@
     My Recipes
     </script>
 
+
+
+<!--     
+    {{#each}}
+        <li><a href="#">{{id}}</a></li>
+    {{/each}}
+ -->
     <script type="text/x-handlebars" data-template-name="recipes">
     Recipes!!
+    {{#each}}
+        <li><a href="#">{{name}}</a></li>
+    {{/each}}
         Yo.
     {{input type="text" class="new-recipe" placeholder="Name your Recipe" value=recipeName}}
     {{input type="text" class="new-recipe" placeholder="details plz" value=recipeDetails}}

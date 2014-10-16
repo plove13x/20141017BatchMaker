@@ -1,7 +1,7 @@
 BM.Recipe = DS.Model.extend({
 	name: DS.attr('string'),
 	recipeDetails: DS.attr('string'),
-	author: DS.belongsTo('user'),
+	user: DS.belongsTo('user'),
 	isPublic: DS.attr('boolean')
 });
 
