@@ -91,3 +91,13 @@ BM.RecipesRoute = Ember.Route.extend({
     	return this.store.find('recipe');
   	}
 });
+
+BM.RecipesCreateRoute = Ember.Route.extend({
+  setupController: function(controller, model){
+    this._super(controller, model);
+    var ingredient = this.store.createRecord('ingredientFood', {});
+    var step = this.store.createRecord('step', {});
+    step.get('ingredients').addObject(ingredient);
+    controller.set('steps', [step]);
+  }
+});

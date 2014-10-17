@@ -14,6 +14,10 @@ BM.RecipesCreateController = Ember.Controller.extend({
 	},
 
 	actions: {
+		addStep: function(){
+      		var step = this.store.createRecord('step', {});
+      		this.get('steps').addObject(step);
+    	},
 		createRecipe: function() {
 			var user = this.get('user');
 			// this.store.createRecord('user');
@@ -23,6 +27,7 @@ BM.RecipesCreateController = Ember.Controller.extend({
 				recipeDetails: this.get('recipeDetails'),
 				user: user
 			});
+			recipe.get('steps').addObjects( this.get('steps') );
 			recipe.save().then(function(){
 				user.get('recipes').then(function(f){
 					f.addObject(recipe);

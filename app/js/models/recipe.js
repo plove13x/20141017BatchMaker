@@ -2,7 +2,8 @@ BM.Recipe = DS.Model.extend({
 	name: DS.attr('string'),
 	recipeDetails: DS.attr('string'),
 	user: DS.belongsTo('user'),
-	isPublic: DS.attr('boolean')
+	isPublic: DS.attr('boolean'),
+	steps: DS.hasMany('step', {embedded: true})
 });
 
 // remove recipe details!?

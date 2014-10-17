@@ -69,6 +69,24 @@
 
 
 
+
+<!--
+    <h4>Step 1</h4>
+    {{input type="text" class="new-recipe" placeholder="Amount" value=rQty}}
+    {{view Ember.Select content=degreeScale prompt="unit"}}
+    {{input type="text" class="new-recipe" placeholder="Amount" value=rQty}}
+    <button {{action "deleteIngredient"}}> - </button>
+    <p>
+    {{input type="text" class="new-recipe" placeholder="Amount" value=rQty}}
+    {{view Ember.Select content=degreeScale prompt="unit"}}
+    {{input type="text" class="new-recipe" placeholder="Amount" value=rQty}}
+    <button {{action "deleteIngredient"}}> + </button>
+    </p>
+
+    {{textarea class="new-recipe" placeholder="What directions go with this step?" value=rQty}}
+-->
+
+
 <!--     {{input type="checkbox" checked=isPublic}} -->
     <script type="text/x-handlebars" data-template-name="recipes/create">
     <h2>Gimme a new one.</h2>
@@ -94,10 +112,30 @@
     {{input type="text" class="new-recipe" placeholder="Amount" value=rQty}}
     {{input type="text" class="new-recipe" placeholder="cookies, loaves, etc." value=qtyType}}
     </p>
-    <h4>Step 1</h4>
+
+
+    {{#each steps itemController="step"}}
+      {{#each ingredients}}
+        {{input value=name placeholder="Name"}}
+        <button {{action "addIngredient"}}>+</button>
+      {{/each}}
+      {{textarea value=description}}
+    {{/each}}
+
+
+
+
+
+
+
+
+
+    <button {{action "addStep"}}>Add another step</button>
     <h4>Personal Notes</h4>
 
-    <button {{action "createRecipe"}}>Store that in tha store</button>
+    {{textarea class="new-recipe" value=rQty}}
+
+    <button {{action "createRecipe"}}>Save this Recipe!</button>
     </script>
 
     <script type="text/x-handlebars" data-template-name="settings">
@@ -230,8 +268,11 @@
         <script src="js/controllers/user_controller.js"></script>
         <script src="js/controllers/recipes_controller.js"></script>
         <script src="js/controllers/recipesCreate_controller.js"></script>
+        <script src="js/controllers/step_controller.js"></script>
         <script src="js/models/user.js"></script>
         <script src="js/models/recipe.js"></script>
+        <script src="js/models/step.js"></script>
+        <script src="js/models/ingredientFood.js"></script>
         <!-- endbuild -->
 </body>
 </html>
