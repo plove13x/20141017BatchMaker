@@ -71,12 +71,34 @@
 
 <!--     {{input type="checkbox" checked=isPublic}} -->
     <script type="text/x-handlebars" data-template-name="recipes/create">
-    Gimme a new one.
-    {{input type="text" class="new-recipe" placeholder="Name your Recipe" value=recipeName}}
+    <h2>Gimme a new one.</h2>
+    <div>
+    <img src="http://placekitten.com/g/125/125" />
+    <div class="a">
+    {{input type="text" class="new-recipe" placeholder="Recipe Name" value=recipeName}}
     {{input type="text" class="new-recipe" placeholder="details plz" value=recipeDetails}}
+    <p>
+    {{input type="text" class="new-recipe" placeholder="By" value=user}}
+    </p>
+    Make it (not!) Private {{input type="checkbox" checked=isPublic}}
+    </div>
+    </div>
+
+    {{view Ember.Select content=rTypes prompt="Recipe Type"}}
+    {{input type="text" class="new-recipe" placeholder="Prep Time" value=prepTime}}
+    {{input type="text" class="new-recipe" placeholder="Cook Time" value=cookTime}}
+    {{input type="text" class="new-recipe" placeholder="Cook Temp" value=cookTemp}}
+    {{view Ember.Select content=degreeScale prompt="Degree Scale"}}
+    <p>
+    This recipe will make 
+    {{input type="text" class="new-recipe" placeholder="Amount" value=rQty}}
+    {{input type="text" class="new-recipe" placeholder="cookies, loaves, etc." value=qtyType}}
+    </p>
+    <h4>Step 1</h4>
+    <h4>Personal Notes</h4>
+
     <button {{action "createRecipe"}}>Store that in tha store</button>
     </script>
-
 
     <script type="text/x-handlebars" data-template-name="settings">
     Adjust yo settings.

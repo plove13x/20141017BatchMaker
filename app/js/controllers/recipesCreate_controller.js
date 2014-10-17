@@ -4,6 +4,10 @@ BM.RecipesCreateController = Ember.Controller.extend({
 	recipeName: '',
 	recipeDetails: '',
 	user: Ember.computed.alias('controllers.application.user'),
+	
+	rTypes: ["Breakfast", "Lunch", "Dinner", "Dessert"],
+	degreeScale: ["Fahrenheit", "Celsius"],
+
 	init: function() {
 		console.log(this.get('user'));
 		console.log(this.get('controllers.application.user.data'));
