@@ -29,9 +29,15 @@ BM.RecipesCreateController = Ember.Controller.extend({
 			var recipe = this.store.createRecord('recipe', {
 				name: this.get('recipeName'),
 				recipeDetails: this.get('recipeDetails'),
+				isPublic: this.get('isPublic'),
 				rType: this.get('rType'),
 				prepTime: this.get('prepTime'),
 				cookTime: this.get('cookTime'),
+				cookTemp: this.get('cookTemp'),
+				dScale: this.get('dScale'),
+				rQty: this.get('rQty'),
+				qtyType: this.get('qtyType'),
+				pNotes: this.get('pNotes'),
 				user: user,
 			});
 			recipe.get('steps').addObjects( this.get('steps') );
