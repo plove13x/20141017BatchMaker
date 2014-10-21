@@ -86,8 +86,11 @@
     {{textarea class="new-recipe" placeholder="What directions go with this step?" value=rQty}}
 -->
 
+<!-- 
+    {{input type="text" class="new-recipe" placeholder="By" value=user}} -->
 
-<!--     {{input type="checkbox" checked=isPublic}} -->
+<!--            {{input value=ingrAmnt placeholder="Amount" size=5}}
+        {{view Ember.Select content=unitTypes prompt="Unit" value=unitType}} -->
     <script type="text/x-handlebars" data-template-name="recipes/create">
     <h2>Gimme a new one.</h2>
     <div>
@@ -95,7 +98,7 @@
     <div class="a">
     {{input type="text" class="new-recipe" placeholder="Recipe Name" value=recipeName}}
     <p>
-    {{input type="text" class="new-recipe" placeholder="By" value=user}}
+
     </p>
     Make it Private {{input type="checkbox" checked=isPrivate}}
     </div>
@@ -117,8 +120,10 @@
     <h4>Step</h4>
     <ul>
 
-      {{#each ingredients}}
+      {{#each ingredients itemController="ingredient"}}
         <li>
+        {{input value=ingrAmnt placeholder="Amount" size=5}}
+        {{view Ember.Select content=unitTypes prompt="Unit" value=unitType}}
         {{input value=name placeholder="Ingredient needed for this step" size=33}}
         </li>
       {{/each}}
@@ -270,6 +275,7 @@
         <script src="js/controllers/recipes_controller.js"></script>
         <script src="js/controllers/recipesCreate_controller.js"></script>
         <script src="js/controllers/step_controller.js"></script>
+        <script src="js/controllers/ingredient_controller.js"></script>
         <script src="js/models/user.js"></script>
         <script src="js/models/recipe.js"></script>
         <script src="js/models/step.js"></script>
