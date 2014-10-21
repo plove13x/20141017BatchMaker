@@ -94,11 +94,10 @@
     <img src="http://placekitten.com/g/125/125" />
     <div class="a">
     {{input type="text" class="new-recipe" placeholder="Recipe Name" value=recipeName}}
-    {{input type="text" class="new-recipe" placeholder="details plz" value=recipeDetails}}
     <p>
     {{input type="text" class="new-recipe" placeholder="By" value=user}}
     </p>
-    Make it (not!) Private {{input type="checkbox" checked=isPublic}}
+    Make it Private {{input type="checkbox" checked=isPrivate}}
     </div>
     </div>
 
@@ -115,26 +114,28 @@
 
 
     {{#each steps itemController="step"}}
+    <h4>Step</h4>
+    <ul>
+
       {{#each ingredients}}
-        {{input value=name placeholder="Name"}}
-        <button {{action "addIngredient"}}>+</button>
+        <li>
+        {{input value=name placeholder="Ingredient needed for this step" size=33}}
+        </li>
       {{/each}}
-      {{textarea value=description}}
+      <button {{action "addIngredient"}}>Add another ingredient to this step</button>
+        <li>
+        {{textarea value=description placeholder="Instructions for this step"}}
+        </li>
+    </ul>
     {{/each}}
-
-
-
-
-
-
 
 
 
     <button {{action "addStep"}}>Add another step</button>
     <h4>Personal Notes</h4>
-
+    <p>
     {{textarea class="new-recipe" value=pNotes}}
-
+    </p>
     <button {{action "createRecipe"}}>Save this Recipe!</button>
     </script>
 

@@ -1,8 +1,8 @@
 BM.Recipe = DS.Model.extend({
 	name: DS.attr('string'),
-	recipeDetails: DS.attr('string'),
+	// recipeDetails: DS.attr('string'),
 	user: DS.belongsTo('user'),
-	isPublic: DS.attr('boolean'),
+	isPrivate: DS.attr('boolean'),
 	rType: DS.attr('string'),
 	prepTime: DS.attr('string'),
 	cookTime: DS.attr('string'),
