@@ -3,6 +3,7 @@ BM.Recipe = DS.Model.extend({
 	recipeDetails: DS.attr('string'),
 	user: DS.belongsTo('user'),
 	isPublic: DS.attr('boolean'),
+	rType: DS.attr('string'),
 	prepTime: DS.attr('string'),
 	cookTime: DS.attr('string'),
 	steps: DS.hasMany('step', {embedded: true})

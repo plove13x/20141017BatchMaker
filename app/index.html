@@ -102,7 +102,7 @@
     </div>
     </div>
 
-    {{view Ember.Select content=rTypes prompt="Recipe Type"}}
+    {{view Ember.Select content=rTypes prompt="Recipe Type" value=rType}}
     {{input type="text" class="new-recipe" placeholder="Prep Time" value=prepTime}}
     {{input type="text" class="new-recipe" placeholder="Cook Time" value=cookTime}}
     {{input type="text" class="new-recipe" placeholder="Cook Temp" value=cookTemp}}
@@ -133,7 +133,7 @@
     <button {{action "addStep"}}>Add another step</button>
     <h4>Personal Notes</h4>
 
-    {{textarea class="new-recipe" value=rQty}}
+    {{textarea class="new-recipe" value=pNotes}}
 
     <button {{action "createRecipe"}}>Save this Recipe!</button>
     </script>
