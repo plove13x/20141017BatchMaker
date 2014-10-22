@@ -1,4 +1,4 @@
 BM.ApplicationController = Ember.ObjectController.extend({
-	user: Ember.computed.alias('model')
+	// user: Ember.computed.alias('model')
 });
 

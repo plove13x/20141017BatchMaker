@@ -1,6 +1,7 @@
 BM.Router.map(function(){
 	this.resource('index', {path: '/'});
 	this.route('login');
+	this.route('register');
 	this.route('settings');
 
 	this.resource('user', {path: '/:id'});		/* {path: ':user_name'})? */
@@ -18,7 +19,7 @@ BM.Router.map(function(){
 
 BM.ApplicationRoute = Ember.Route.extend({
 	model: function(params){
-		return this.store.find('user', 'user_id_ollie');
+		// return this.store.find('user', 'user_id_ollie');
 		// return rooms.findBy('id', params.room_id);
 		// console.log(params);
 		// return this.store.findBy('id', params.id);		/* params.user_name */

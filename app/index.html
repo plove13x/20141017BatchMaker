@@ -57,13 +57,20 @@
     </div>
     </script>
 
+    <script type="text/x-handlebars" data-template-name="register">
+        <h2>Register Now!</h2>
+         {{input type="email" class="" value=email placeholder="email"}}
+         {{input type="password" class="" value=password placeholder="password"}}
+         <button {{action "createUser"}}>Register Now!</button>
+    </script>
+
     <script type="text/x-handlebars" data-template-name="login">
         <div class="loginSection">
         <h5>Log in to see bakers fussin:</h5>
-        {{input type="text" class="" value=username placeholder="userName"}}
-        {{input type="text" class="" value=id placeholder="id"}}
+        {{input type="text" class="" value=email placeholder="userName"}}
+        {{input type="text" class="" value=password placeholder="id"}}
         <button {{action "logIn"}}>Log In</button>
-        <p>Never made a batch with us? <a href="">Register Here!</a>
+        <p>Never made a batch with us? {{#link-to 'register'}}Register Here!{{/link-to}}
         </div>
     </script>
 
@@ -102,11 +109,11 @@
 {{/if}}
 
     <div class="a">
-    {{input type="text" class="new-recipe" placeholder="Recipe Name" value=recipeName}}
     <p>
-
+    {{input type="text" class="new-recipe" placeholder="Recipe Name" value=recipeName}}
     </p>
     Make it Private {{input type="checkbox" checked=isPrivate}}
+    
     </div>
     </div>
 
@@ -277,6 +284,8 @@
         <script src="js/router.js"></script>
         <script src="js/controllers/application_controller.js"></script>
         <script src="js/controllers/login_controller.js"></script>
+        <script src="js/controllers/register_controller.js"></script>
+        <script src="js/controllers/session_controller.js"></script>
         <script src="js/controllers/index_controller.js"></script>
         <script src="js/controllers/user_controller.js"></script>
         <script src="js/controllers/recipes_controller.js"></script>

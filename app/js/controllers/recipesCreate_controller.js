@@ -1,16 +1,16 @@
 BM.RecipesCreateController = Ember.Controller.extend({
 	
-	needs: 'application',
+	needs: 'session',
 	recipeName: '',
 	recipeDetails: '',
-	user: Ember.computed.alias('controllers.application.user'),
+	currentUser: Ember.computed.alias('controllers.session.currentUser'),
 	
 	rTypes: ["Breakfast", "Lunch", "Dinner", "Dessert"],
-	degreeScale: ["°Fahrenheit", "°Celsius"],
+	degreeScale: ["°F", "°C"],
 
 	init: function() {
-		console.log(this.get('user'));
-		console.log(this.get('controllers.application.user.data'));
+		console.log(this.get('currentUser'));
+		// console.log(this.get('controllers.application.user.data'));
 	},
 
 	actions: {
@@ -60,7 +60,7 @@ BM.RecipesCreateController = Ember.Controller.extend({
    //  	},
 
 		createRecipe: function() {
-			var user = this.get('user');
+			var user = this.get('currentUser');
 			// this.store.createRecord('user');
 			console.log(user);
 			var recipe = this.store.createRecord('recipe', {
