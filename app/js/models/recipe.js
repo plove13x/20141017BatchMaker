@@ -6,9 +6,9 @@ BM.Recipe = DS.Model.extend({
 	rType: DS.attr('string'),
 	prepTime: DS.attr('string'),
 	cookTime: DS.attr('string'),
-	cookTemp: DS.attr('string'),
+	cookTemp: DS.attr('number'),
 	dScale: DS.attr('string'),
-	rQty: DS.attr('string'),
+	rQty: DS.attr('number'),
 	qtyType: DS.attr('string'),
 	pNotes: DS.attr('string'),
 	steps: DS.hasMany('step', {embedded: true})

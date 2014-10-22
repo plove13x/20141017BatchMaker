@@ -49,9 +49,14 @@ BM.RecipesCreateController = Ember.Controller.extend({
 			});
 			// user.get('recipes').addObject(recipe);
 			this.set('recipeName', '');
-			this.set('recipeDetails', '');
+			this.set('prepTime', '');
+			this.set('cookTime', '');
+			this.set('cookTemp', '');
+			this.set('rQty', '');
+			this.set('qtyType', '');
+			this.set('pNotes', '');
+			this.set('ingrAmnt', '');
 		
-
 		}
 	},
 
