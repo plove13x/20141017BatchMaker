@@ -94,7 +94,13 @@
     <script type="text/x-handlebars" data-template-name="recipes/create">
     <h2>Gimme a new one.</h2>
     <div>
-    <img src="http://placekitten.com/g/125/125" />
+
+{{#if url}}
+    <img {{bind-attr src=url}}>
+    {{else}}
+    <button {{action "addImage"}}>Add Image!</button>
+{{/if}}
+
     <div class="a">
     {{input type="text" class="new-recipe" placeholder="Recipe Name" value=recipeName}}
     <p>
@@ -260,6 +266,7 @@
         <script src="bower_components/ember-data/ember-data.js"></script>
         <script src="bower_components/firebase/firebase.js"></script>
         <script src="bower_components/emberfire/dist/emberfire.js"></script>
+        <script src="bower_components/filepicker/filepicker.min.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
