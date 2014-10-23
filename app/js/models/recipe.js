@@ -1,5 +1,6 @@
 BM.Recipe = DS.Model.extend({
 	name: DS.attr('string'),
+	url: DS.attr('string'),
 	// recipeDetails: DS.attr('string'),
 	user: DS.belongsTo('user'),
 	isPrivate: DS.attr('boolean'),

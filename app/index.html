@@ -259,7 +259,9 @@
     Public Recipes (but currently all ;)
     <ul>
     {{#each}}
-        <li><a href="#">{{name}}</a></li>
+        <li><a href="#">{{name}}</a>
+        <img {{bind-attr src=url}}>
+        </li>
     {{/each}}
     </ul>
     </script>
