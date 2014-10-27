@@ -29,8 +29,9 @@ BM.ApplicationRoute = Ember.Route.extend({
 BM.IndexRoute = Ember.Route.extend({
 	beforeModel: function() {
 		console.log(this.controllerFor('application').get('user'));
-		console.log(this.modelFor('application'));
-		if (!this.modelFor('application')){
+		// console.log(this.modelFor('application'));
+		// if (!this.modelFor('application')){
+		if (this.controllerFor('session').get('currentUser') === null){
 			//!this.get('controllers.application.user')) {
 			this.transitionTo('login');
 
@@ -70,9 +71,13 @@ BM.UserRoute = Ember.Route.extend({
 		// console.log(this.store.find('user_id_ollie'));
   //   	return this.store.find('recipe');
 
-    	return this.store.find('user', 'user_id_ollie').then(function(user) {
+
+
+    	return this.store.find('user', (this.controllerFor('session').get('currentUser'))).then(function(user) {
     		return user.get('recipes');
     	});
+
+
 
 	// model: function(params) {							// THESE TWO LINES WERE IN HERE IF IT BREAKS!
 	// 	return this.store.find('user', params.id);

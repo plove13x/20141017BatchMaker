@@ -22,10 +22,13 @@ BM.LoginController = Ember.Controller.extend({
   needs: ['session'],
   actions: {
     logIn: function(){
+    	console.log(this.get('controllers.session.currentUser'));
       var credentials = this.getProperties('email', 'password');
       this.get('controllers.session').authenticate(credentials);
       // this.set('controllers.session.currentUser', credentials);
-      console.log(credentials);
+      console.log(this.get('controllers.session.currentUser'));
+      this.transitionToRoute('recipes');
     }
   }
 });
+

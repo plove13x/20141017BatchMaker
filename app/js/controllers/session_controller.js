@@ -9,7 +9,8 @@ BM.SessionController = Ember.Controller.extend({
         // this.set('currentUser', authData.uid);
         self.store.find('user', authData.uid).then(function(user){
         self.set('currentUser', user);
-        resolve(user);
+        localStorage.setItem('currentUser', user);
+        resolve(authData);
         console.log(self.get('currentUser'));
         })
 

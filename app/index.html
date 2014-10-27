@@ -103,7 +103,7 @@
     <div>
 
 {{#if url}}
-    <img {{bind-attr src=url}}>
+    <img class="rImg" {{bind-attr src=url}}>
     {{else}}
     <button {{action "addImage"}}>Add Image!</button>
 {{/if}}
@@ -260,7 +260,7 @@
     <ul>
     {{#each}}
         <li><a href="#">{{name}}</a>
-        <img {{bind-attr src=url}}>
+        <img class="rImg" {{bind-attr src=url}}>
         </li>
     {{/each}}
     </ul>
