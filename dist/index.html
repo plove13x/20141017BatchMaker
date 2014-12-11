@@ -1,0 +1,276 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Batch Maker</title>
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+  <body>
+
+
+
+<!--                 // {{#link-to 'user controllers.application.user.id'}}
+                // My Recipes
+                // {{/link-to}} -->
+    <script type="text/x-handlebars" data-template-name="application">
+        <header>
+            <span>The kitchen is yours, chef!</span>
+            <h1>{{#link-to 'index'}}
+                Batch Maker
+                {{/link-to}}</h1>
+            <div class='topRightNav'>
+                {{#link-to 'login'}}
+                Login
+                {{/link-to}}
+                {{#link-to 'recipes.create'}}
+                +
+                {{/link-to}}
+                <a href=''>Settings</a>
+                <a href=''>Edit Profile</a>
+            </div>
+        </header>
+        <div class="sidebar">
+            <ul>
+                <li>
+                {{#link-to 'user' id}}
+                My Recipes
+                {{/link-to}}
+                </li>
+                <li>
+                {{#link-to 'recipes'}}
+                Public Recipes
+                {{/link-to}}
+                </li>
+                <li>
+                <a href=''>Popular Recipes</a>
+                </li>
+                <li>
+                <a href=''>My Favorite Recipes</a>
+                </li>
+                <li>
+                <a href=''>My Pantry</a>
+                </li>
+            </ul>
+        </div>
+    <div class="mainSection">
+    {{outlet}}
+    </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="register">
+        <h2>Register Now!</h2>
+         {{input type="email" class="" value=email placeholder="email"}}
+         {{input type="password" class="" value=password placeholder="password"}}
+         <button {{action "createUser"}}>Register Now!</button>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="login">
+        <div class="loginSection">
+        <h5>Log in to see bakers fussin:</h5>
+        {{input type="text" class="" value=email placeholder="userName"}}
+        {{input type="text" class="" value=password placeholder="id"}}
+        <button {{action "logIn"}}>Log In</button>
+        <p>Never made a batch with us? {{#link-to 'register'}}Register Here!{{/link-to}}
+        </div>
+    </script>
+
+
+
+
+<!--
+    <h4>Step 1</h4>
+    {{input type="text" class="new-recipe" placeholder="Amount" value=rQty}}
+    {{view Ember.Select content=degreeScale prompt="unit"}}
+    {{input type="text" class="new-recipe" placeholder="Amount" value=rQty}}
+    <button {{action "deleteIngredient"}}> - </button>
+    <p>
+    {{input type="text" class="new-recipe" placeholder="Amount" value=rQty}}
+    {{view Ember.Select content=degreeScale prompt="unit"}}
+    {{input type="text" class="new-recipe" placeholder="Amount" value=rQty}}
+    <button {{action "deleteIngredient"}}> + </button>
+    </p>
+
+    {{textarea class="new-recipe" placeholder="What directions go with this step?" value=rQty}}
+-->
+
+<!-- 
+    {{input type="text" class="new-recipe" placeholder="By" value=user}} -->
+
+<!--            {{input value=ingrAmnt placeholder="Amount" size=5}}
+        {{view Ember.Select content=unitTypes prompt="Unit" value=unitType}} -->
+    <script type="text/x-handlebars" data-template-name="recipes/create">
+    <h2>Gimme a new one.</h2>
+    <div>
+
+{{#if url}}
+    <img class="rImg" {{bind-attr src=url}}>
+    {{else}}
+    <button {{action "addImage"}}>Add Image!</button>
+{{/if}}
+
+    <div class="a">
+    <p>
+    {{input type="text" class="new-recipe" placeholder="Recipe Name" value=recipeName}}
+    </p>
+    Make it Private {{input type="checkbox" checked=isPrivate}}
+    
+    </div>
+    </div>
+
+    {{view Ember.Select content=rTypes prompt="Recipe Type" value=rType}}
+    {{input type="text" class="new-recipe" placeholder="Prep Time" value=prepTime}}
+    {{input type="text" class="new-recipe" placeholder="Cook Time" value=cookTime}}
+    {{input type="text" class="new-recipe" placeholder="Cook Temp" value=cookTemp}}
+    {{view Ember.Select content=degreeScale prompt="Degree Scale" value=dScale}}
+    <p>
+    This recipe will make 
+    {{input type="text" class="new-recipe" placeholder="Amount" value=rQty}}
+    {{input type="text" class="new-recipe" placeholder="cookies, loaves, etc." value=qtyType}}
+    </p>
+
+
+    {{#each steps itemController="step"}}
+    <h4>Step</h4>
+    <ul>
+
+      {{#each ingredients itemController="ingredient"}}
+        <li>
+        {{input value=ingrAmnt placeholder="Amount" size=5}}
+        {{view Ember.Select content=unitTypes prompt="Unit" value=unitType}}
+        {{input value=name placeholder="Ingredient needed for this step" size=33}}
+        </li>
+      {{/each}}
+      <button {{action "addIngredient"}}>Add another ingredient to this step</button>
+        <li>
+        {{textarea value=description placeholder="Instructions for this step"}}
+        </li>
+    </ul>
+    {{/each}}
+
+
+
+    <button {{action "addStep"}}>Add another step</button>
+    <h4>Personal Notes</h4>
+    <p>
+    {{textarea class="new-recipe" value=pNotes}}
+    </p>
+    <button {{action "createRecipe"}}>Save this Recipe!</button>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="settings">
+    Adjust yo settings.
+    </script>
+
+
+
+
+<!--                 
+                {{#each itemController="recipes"}}
+                <li><a href="#">{{id}}</a></li>
+                {{/each}}
+
+            {{#log controllerFor('user').get('recipes'));}}
+ -->
+<!-- {{each my recipes}}  Add to ones that need to be not public once controller is set -->
+    <script type="text/x-handlebars" data-template-name="index">
+        <div class="recipeCat1st5">
+            <div class='recipeCatHeader'>
+                <h2>My Recipes</h2>
+                <a href="#">View all></a>
+            </div>
+            <ul>
+
+                {{#each myRecipes}}
+                    <li><a href="#">{{name}}</a></li>
+                {{/each}}    
+
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+            </ul>
+        </div>
+
+        <div class="recipeCat1st5">
+            <div class='recipeCatHeader'>
+                <h2>Public Recipes</h2>
+                <a href="#">View all></a>
+            </div>
+            <ul>
+
+                {{#each recipes}}
+                    <li><a href="#">{{name}}</a></li>
+                {{/each}}
+
+                <li><a href="#"></a></li>
+            </ul>
+        </div>
+
+        <div class="recipeCat1st5">
+            <div class='recipeCatHeader'>
+                <h2>Popular Recipes</h2>
+                <a href="#">View all></a>
+            </div>
+            <ul>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+            </ul>
+        </div>
+
+        <div class="recipeCat1st5">
+            <div class='recipeCatHeader'>
+                <h2>My Favorite Recipes</h2>
+                <a href="#">View all></a>
+            </div>
+            <ul>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+            </ul>
+        </div>
+
+        <div class="recipeCat1st5">
+            <div class='recipeCatHeader'>
+                <h2>My Pantry</h2>
+                <a href="#">View all></a>
+            </div>
+            <ul>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+            </ul>
+        </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="user">
+    My Recipes
+    {{#each}}
+        <li><a href="#">{{name}}</a></li>
+    {{/each}}
+    </script>
+
+
+    <script type="text/x-handlebars" data-template-name="recipes/index">
+    Public Recipes (but currently all ;)
+    <ul>
+    {{#each}}
+        <li><a href="#">{{name}}</a>
+        <img class="rImg" {{bind-attr src=url}}>
+        </li>
+    {{/each}}
+    </ul>
+    </script>
+
+
+        <script src="scripts/vendor.js"></script>
+
+
+
+        <script src="scripts/main.js"></script>
+</body>
+</html>
